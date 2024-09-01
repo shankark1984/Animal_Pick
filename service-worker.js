@@ -1,5 +1,5 @@
 // Cache name with version
-const CACHE_NAME = 'game-cache-v2'; // Update this version whenever you make changes
+const CACHE_NAME = 'game-cache-v3'; // Update this version whenever you make changes
 
 // Files to cache
 const urlsToCache = [

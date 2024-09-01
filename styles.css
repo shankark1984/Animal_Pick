@@ -84,6 +84,11 @@ button:active {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    visibility: hidden; /* Hide by default */
+}
+
+#restartButton.visible {
+    visibility: visible; /* Make visible when the class is added */
 }
 
 #restartButton:hover {

@@ -1,5 +1,5 @@
 // Cache name with version
-const CACHE_NAME = 'game-cache-v3'; // Update this version whenever you make changes
+const CACHE_NAME = 'game-cache-v4'; // Update this version whenever you make changes
 
 // Files to cache
 const urlsToCache = [
@@ -52,7 +52,7 @@ self.addEventListener('activate', event => {
                 })
             );
         })
-        .then(() => self.clients.claim()) // Ensure the new service worker takes control immediately
+            .then(() => self.clients.claim()) // Ensure the new service worker takes control immediately
     );
 });
 

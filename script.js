@@ -164,3 +164,39 @@ function restartGame() {
     restartButton.style.visibility = 'hidden';
     startGame();
 }
+
+// Disable all page drag / pull to refresh
+function disablePullToRefresh() {
+    let touchStartY = 0;
+
+    window.addEventListener('touchstart', function (e) {
+        touchStartY = e.touches[0].clientY;
+
+        // Prevent multi-touch zoom
+        if (e.touches.length > 1) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+
+    window.addEventListener('touchmove', function (e) {
+        const currentY = e.touches[0].clientY;
+
+        // Prevent pull-to-refresh when at the top
+        if (window.scrollY === 0 && currentY > touchStartY) {
+            e.preventDefault();
+        }
+
+        // Prevent zoom if more than one finger
+        if (e.touches.length > 1) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+}
+
+// Prevent double-tap to zoom
+document.addEventListener('dblclick', function (e) {
+    e.preventDefault();
+}, { passive: false });
+
+// Call it when the page loads
+window.addEventListener('load', disablePullToRefresh);
